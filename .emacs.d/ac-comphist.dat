@@ -1,4 +1,8 @@
-((("disabled" .
+((("on" .
+   [1 0])
+  ("socket" .
+   [0 0 0 0 1 0])
+  ("disabled" .
    [0 0 0 0 0 0 0 1])
   ("localPeerConnection" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
