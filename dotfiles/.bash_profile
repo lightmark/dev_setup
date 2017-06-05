@@ -4,6 +4,7 @@ fi
 
 # Terminal Color
 export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 export CLICOLOR=1
 export LSCOLORS=gxfxaxdxcxegedabagacad
 alias grep='grep --color'
