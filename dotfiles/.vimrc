@@ -33,6 +33,7 @@ filetype plugin indent on    " required
 
 " cutomized setttings
 colorscheme gruvbox
+syntax on
 set number
 set laststatus=2
 set pastetoggle=<F2>
