@@ -7,8 +7,5 @@ ln -sb $DEV_ROOT/dotfiles/.tmux.conf ~
 ln -sb $DEV_ROOT/dotfiles/.bash_profile ~
 ln -sb $DEV_ROOT/dotfiles/.bashrc ~
 
-if [ -d ~/.emacs.d/ ]; then
-        mv ~/.emacs.d ~/.emacs.d~
-fi
-ln -sf $DEV_ROOT/.emacs.d ~
-
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ln -sb $DEV_ROOT/dotfiles/.vimrc ~
