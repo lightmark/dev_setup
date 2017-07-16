@@ -74,14 +74,13 @@ function! s:unite_settings()
   let b:SuperTabDisabled=1
 endfunction
 
-  
 
-function! g:get_project_path()
+function! GetProjectPath()
   return unite#util#path2project_directory(expand("%:p")) 
 endfunction
 
-nnoremap <leader><C-]> :let $GTAGSROOT=g:get_project_path() <bar> :<C-u>:execute 'Unite -direction=dynamicbottom gtags/def:'.expand('<cword>')<CR>
-nnoremap <leader><C-[> :let $GTAGSROOT=g:get_project_path() <bar> :<C-u>:execute 'Unite -direction=dynamicbottom gtags/ref:'.expand('<cword>')<CR>
+nnoremap <leader><C-]> :let $GTAGSROOT=GetProjectPath() <bar> :<C-u>:execute 'Unite -direction=dynamicbottom gtags/def:'.expand('<cword>')<CR>
+nnoremap <leader><C-[> :let $GTAGSROOT=GetProjectPath() <bar> :<C-u>:execute 'Unite -direction=dynamicbottom gtags/ref:'.expand('<cword>')<CR>
 
 " Use ack
 " http://beyondgrep.com/
