@@ -1,2 +1,1 @@
-#export WORKON_HOME=$HOME/.virtualenvs
-#source /usr/local/bin/virtualenvwrapper.sh
+PATH=$PATH:/opt/homebrew/bin:/opt/facebook/bin:/opt/facebook/hg/bin

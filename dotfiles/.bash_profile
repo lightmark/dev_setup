@@ -20,3 +20,4 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/:$PKG_CONFIG_PATH
 
 # for not pyc
 export PYTHONDONTWRITEBYTECODE=1
+
