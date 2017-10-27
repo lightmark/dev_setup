@@ -1,13 +1,24 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"===============================================================================
+" Setting up Vundle - the vim plugin bundler
+"===============================================================================
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  let iCanHazVundle=0
+endif
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
 
-call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 " ======== Plugins =========
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -31,7 +42,11 @@ Plugin 'Shougo/vimproc.vim'
 set background=dark
 Plugin 'morhetz/gruvbox'
 
-call vundle#end()            " required
+if iCanHazVundle == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :PluginInstall
+endif
 filetype plugin indent on    " required
 
 "===============================================================================
