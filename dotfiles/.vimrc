@@ -7,8 +7,6 @@ if &compatible          " required
 endif
 
 filetype off
-let g:python3_host_prog='/usr/local/bin/python3'
-source $LOCAL_ADMIN_SCRIPTS/master.vimrc
 " auto git clone Dein.vim
 let s:plugin_path=expand('~/.vim/dein/')
 let s:dein_path=expand('~/.vim/dein/repos/github.com/Shougo/dein.vim')
