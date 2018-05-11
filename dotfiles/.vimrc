@@ -7,7 +7,8 @@ if &compatible          " required
 endif
 
 filetype off
-
+let g:python3_host_prog='/usr/local/bin/python3'
+source $LOCAL_ADMIN_SCRIPTS/master.vimrc
 " auto git clone Dein.vim
 let s:plugin_path=expand('~/.vim/dein/')
 let s:dein_path=expand('~/.vim/dein/repos/github.com/Shougo/dein.vim')
@@ -113,7 +114,7 @@ call denite#custom#map(
       \)
 
 " call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>r :<C-u>DeniteProjectDir file_rec<CR>
+nnoremap <leader>r :<C-u>Denite file_rec<CR>
 nnoremap <leader>f :<C-u>DeniteBufferDir file_rec<CR>
 nnoremap <leader>b :<C-u>Denite buffer<CR>
 
@@ -126,8 +127,8 @@ nnoremap <C-c>g :<C-u>DeniteCursorWord -buffer-name=gtags_grep gtags_grep<cr>
 " Customized shortcut setting
 "===============================================================================
 noremap <leader>s :update<CR>
-noremap <leader>k :confirm :bd<CR>
-
+"noremap <leader>k :confirm :bd<CR>
+noremap <leader>k :b#<bar>bd#<CR>
 "===============================================================================
 " Facebook
 "===============================================================================
