@@ -38,6 +38,7 @@ if dein#load_state(s:plugin_path)
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('luochen1990/rainbow')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-commentary')
   call dein#add('tpope/vim-surround')
@@ -48,6 +49,8 @@ if dein#load_state(s:plugin_path)
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('morhetz/gruvbox')
+  call dein#add('Chiel92/vim-autoformat')
+  call dein#add('python-mode/python-mode', {'build': 'git submodule update --init --recursive'})
   call dein#end()
   call dein#save_state()
 endif
@@ -64,6 +67,9 @@ endif
 "===============================================================================
 " cutomized setttings
 "===============================================================================
+set nobackup
+set encoding=utf-8
+
 colorscheme gruvbox
 set background=dark
 
@@ -93,6 +99,7 @@ set softtabstop=2
 set backspace=2 " make backspace work like most other apps
 
 let g:indent_guides_guide_size = 1
+let g:pymode_python = 'python3'
 
 "===============================================================================
 " Denite
@@ -121,6 +128,15 @@ nnoremap <C-c>d :<C-u>DeniteCursorWord -buffer-name=gtags_def gtags_def<cr>
 nnoremap <C-c>r :<C-u>DeniteCursorWord -buffer-name=gtags_ref  gtags_ref<cr>
 nnoremap <C-c>g :<C-u>DeniteCursorWord -buffer-name=gtags_grep gtags_grep<cr>
 
+"===============================================================================
+" Other Plugins
+"===============================================================================
+" python mode
+" otherwise it will conflict with Denite buffer
+let g:pymode_run = 0
+let g:pymode_breakpoint = 0
+" autoformat
+noremap <C-i> :Autoformat<CR>
 "===============================================================================
 " Customized shortcut setting
 "===============================================================================
