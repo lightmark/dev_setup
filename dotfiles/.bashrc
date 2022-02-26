@@ -6,4 +6,6 @@ export PATH=$PATH:/opt/homebrew/bin:/opt/facebook/bin:/opt/facebook/hg/bin
 # GNU Global with ctags and pygments
 export GTAGSCONF=/usr/local/share/gtags/gtags.conf
 export GTAGSLABEL=pygments
-export PATH=/usr/local/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:/usr/local/Cellar/protobuf/3.6.1/bin
+

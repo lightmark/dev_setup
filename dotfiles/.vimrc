@@ -36,6 +36,7 @@ if dein#load_state(s:plugin_path)
   endif
   call dein#add('ozelentok/denite-gtags')
   call dein#add('vim-airline/vim-airline')
+  call dein#add('djoshea/vim-autoread')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('scrooloose/nerdtree')
   call dein#add('luochen1990/rainbow')
@@ -45,12 +46,13 @@ if dein#load_state(s:plugin_path)
   call dein#add('tpope/vim-repeat')
   call dein#add('easymotion/vim-easymotion')
   call dein#add('mattn/emmet-vim')
-  call dein#add('majutsushi/tagbar')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('morhetz/gruvbox')
   call dein#add('Chiel92/vim-autoformat')
-  call dein#add('python-mode/python-mode', {'build': 'git submodule update --init --recursive'})
+  " For Rust
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('racer-rust/vim-racer')
   call dein#end()
   call dein#save_state()
 endif
@@ -67,8 +69,11 @@ endif
 "===============================================================================
 " cutomized setttings
 "===============================================================================
+set noswapfile
 set nobackup
 set encoding=utf-8
+" horizontal split splits below
+set splitbelow
 
 colorscheme gruvbox
 set background=dark
@@ -95,11 +100,24 @@ set incsearch
 
 set expandtab
 set shiftwidth=2
-set softtabstop=2
+set softtabstop=4
 set backspace=2 " make backspace work like most other apps
+
+" let g:deoplete#enable_at_startup = 1
 
 let g:indent_guides_guide_size = 1
 let g:pymode_python = 'python3'
+
+" Rust/racer settings
+set hidden
+let g:racer_cmd = "/Users/gzh/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+let g:rustfmt_options = ''
+let g:rustfmt_autosave = 1
 
 "===============================================================================
 " Denite
@@ -107,13 +125,13 @@ let g:pymode_python = 'python3'
 " use <C-j> and <C-k> to move up and down in denite insert mode
 call denite#custom#map(
       \ 'insert',
-      \ '<C-n>',
+      \ '<c-n>',
       \ '<denite:move_to_next_line>',
       \ 'noremap'
       \)
 call denite#custom#map(
       \ 'insert',
-      \ '<C-p>',
+      \ '<c-p>',
       \ '<denite:move_to_previous_line>',
       \ 'noremap'
       \)
@@ -142,7 +160,7 @@ noremap <C-i> :Autoformat<CR>
 "===============================================================================
 noremap <leader>s :update<CR>
 "noremap <leader>k :confirm :bd<CR>
-noremap <leader>k :b#<bar>bd#<CR>
+noremap <leader>k :b#<bar>bd!#<CR>
 "===============================================================================
 " Facebook
 "===============================================================================

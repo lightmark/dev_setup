@@ -7,8 +7,6 @@ ln -s $DEV_ROOT/dotfiles/.tmux.conf ~
 ln -s $DEV_ROOT/dotfiles/.bash_profile ~
 ln -s $DEV_ROOT/dotfiles/.bashrc ~
 mkdir -p ~/.ssh
-ln -s $DEV_ROOT/dotfiles/rc ~/.ssh/rc
 
 ln -s $DEV_ROOT/dotfiles/.vimrc ~
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
