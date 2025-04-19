@@ -4,8 +4,6 @@
 
 DEV_ROOT=`pwd`
 ln -s $DEV_ROOT/dotfiles/.tmux.conf ~
-ln -s $DEV_ROOT/dotfiles/.bash_profile ~
-ln -s $DEV_ROOT/dotfiles/.bashrc ~
 mkdir -p ~/.ssh
 
 ln -s $DEV_ROOT/dotfiles/.vimrc ~
